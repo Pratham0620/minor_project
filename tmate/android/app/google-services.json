@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "1057372240312",
+    "project_id": "minor-project-travelmate",
+    "storage_bucket": "minor-project-travelmate.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1057372240312:android:ed97e5ab7dceddb1adb74d",
+        "android_client_info": {
+          "package_name": "com.example.tmate"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1057372240312-ot17ekd45kmvrpbas9o2vrepbd2esbbk.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.tmate",
+            "certificate_hash": "14538a394074d18ad4a6802bd6bd6455e1f058df"
+          }
+        },
+        {
+          "client_id": "1057372240312-hoi35t4sce9gocsh8ep64r2efss2hc5l.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDk1UZu_vy3Fe3uc7XibzaNuhuV1aeme10"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1057372240312-hoi35t4sce9gocsh8ep64r2efss2hc5l.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
