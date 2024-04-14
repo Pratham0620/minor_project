@@ -1,5 +1,6 @@
 import  'package:flutter/material.dart';
 import 'package:tmate/constants/colors.dart';
+import 'package:tmate/pages/Addpage.dart';
 import 'package:tmate/pages/signup.dart';
 import 'package:tmate/services/Auth_services.dart';
 class homePage extends StatefulWidget {
@@ -10,6 +11,7 @@ class homePage extends StatefulWidget {
 }
 
 class _homePageState extends State<homePage> {
+  Authclass authclass = Authclass();
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -42,7 +44,7 @@ class _SplashScreenState extends State<SplashScreen> {
     // Navigate to the home page
     Navigator.pushReplacement(
       context,
-      MaterialPageRoute(builder: (context) => const Home()),
+      MaterialPageRoute(builder: (context) => Home()),
     );
   }
 
@@ -91,12 +93,11 @@ class _SplashScreenState extends State<SplashScreen> {
 
 class Home extends StatelessWidget{
   const Home({super.key});
-  
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: tdBGcolor,
+      backgroundColor: Colors.black87,
       drawer: NavDrawer(),
       appBar: buildApp(),
       body: Container(
@@ -114,33 +115,72 @@ class Home extends StatelessWidget{
                       style: TextStyle(
                         fontSize: 30,
                         fontWeight: FontWeight.w500,
+                        color: Colors.amberAccent
                       ),
                     ),
                   ),
+
                 ],
               )
             ) 
           ], 
         ),
         ),
-        floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          Navigator.push(
-            context,
-            MaterialPageRoute(builder: (context) => AddBlogPage()),
-          );
+        bottomNavigationBar: BottomNavigationBar(
+          backgroundColor: Colors.black87,
+        currentIndex: 0, // Set the initial index (Home tab)
+        onTap: (index) {
+          // Handle tab selection
+          switch (index) {
+            case 0:
+            Navigator.push(context, MaterialPageRoute(builder: (builder)=> Home()));
+              // Navigate to Home screen
+              // You can use Navigator.push() or any other navigation method
+              break;
+            case 1:
+            Navigator.push(context, MaterialPageRoute(builder: (builder)=> AddPage()));
+              // Navigate to Add screen
+              break;
+            case 2:
+            Navigator.push(context, MaterialPageRoute(builder: (builder)=> Home()));
+              // Navigate to Explore screen
+              break;
+          }
         },
-        backgroundColor: Colors.blue,
-        child: const Icon(Icons.add), // Customize the button color if needed
+        items: [
+          BottomNavigationBarItem(
+            icon: Icon(Icons.home,color: Colors.white,),
+            label: 'Home',
+          ),
+          BottomNavigationBarItem(
+           icon:Container(
+              height: 52,
+              width: 52,
+              decoration: BoxDecoration(
+                shape:BoxShape.circle,
+                gradient: LinearGradient(colors: [
+                  Colors.indigoAccent,
+                  Colors.purple,
+                ])
+              ),
+              child: Icon(Icons.add),                    
+            ),
+            label: "Add",
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.explore,color: Colors.white,),
+            label: 'Explore',
+          ),
+        ],
       ),
-      floatingActionButtonLocation: FloatingActionButtonLocation.endFloat,
-    );   
+    );  
   }
+
   Widget searchBox(){
     return Container(
               padding: const EdgeInsets.symmetric(horizontal:20 , vertical: 7),
               decoration: BoxDecoration(
-                color: Colors.white,
+                color: Colors.grey[400],
                 borderRadius: BorderRadius.circular(20)
               ),
               child:const TextField(
@@ -162,12 +202,12 @@ class Home extends StatelessWidget{
 
   AppBar buildApp() {
     return AppBar(
-      backgroundColor:tdBGcolor,
+      backgroundColor:Colors.black87,
       elevation: 0,
       title: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          const Text('TravelMate'),
+          const Text('TravelMate',style: TextStyle(color: Colors.white),),
           // ignore: sized_box_for_whitespace
           Container(
             height: 40,
@@ -234,7 +274,7 @@ class NavDrawer extends StatelessWidget {
   }
 }
 
-class AddBlogPage extends StatelessWidget {
+/*class AddBlogPage extends StatelessWidget {
   final TextEditingController cityController = TextEditingController();
   final TextEditingController expensesController = TextEditingController();
   final TextEditingController descriptionController = TextEditingController();
@@ -245,8 +285,8 @@ class AddBlogPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Add Blog'),
-      ),
+        title: const Text('Create Travel Story'),
+      ), 
       body: Padding(
         padding: const EdgeInsets.all(20.0),
         child: Column(
@@ -286,5 +326,4 @@ class AddBlogPage extends StatelessWidget {
         ),
       ),
     );
-  }
-}
+  }*/
