@@ -63,6 +63,8 @@ class _AddPageState extends State<AddPage>{
                   const SizedBox(height: 12,),
                   title("City Name",),
                   const SizedBox(height: 30,),
+                  label("Category"),
+                  const SizedBox(height: 12,),
                   Row(
                     children: [
                       ChipData("SOLO", 0xffff6d6e),

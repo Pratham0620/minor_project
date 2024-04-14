@@ -1,6 +1,7 @@
 import  'package:flutter/material.dart';
 import 'package:tmate/constants/colors.dart';
 import 'package:tmate/pages/Addpage.dart';
+import 'package:tmate/pages/profile.dart';
 import 'package:tmate/pages/signup.dart';
 import 'package:tmate/services/Auth_services.dart';
 class homePage extends StatefulWidget {
@@ -149,8 +150,9 @@ class Home extends StatelessWidget{
         },
         items: [
           BottomNavigationBarItem(
-            icon: Icon(Icons.home,color: Colors.white,),
-            label: 'Home',
+            icon: Icon(Icons.home,color: Colors.white),
+            label:"Home",
+            
           ),
           BottomNavigationBarItem(
            icon:Container(
@@ -233,12 +235,13 @@ class NavDrawer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Drawer(
+      
       child: ListView(
         padding: EdgeInsets.zero,
         children: <Widget>[
-          const DrawerHeader(
+           DrawerHeader(
             decoration: BoxDecoration(
-                color: Color.fromARGB(255, 61, 120, 168),
+                color: Colors.amber.shade300,
                 image: DecorationImage(
                     fit: BoxFit.fill,
                     image: AssetImage('assets/images/cover.jpg'))),
@@ -251,12 +254,14 @@ class NavDrawer extends StatelessWidget {
           ListTile(
             leading: const Icon(Icons.verified_user),
             title: const Text('Profile'),
-            onTap: () => {Navigator.of(context).pop()},
+            onTap: () => {Navigator.pushAndRemoveUntil(context, 
+              MaterialPageRoute(builder: (builder)=>  ProfilePage()), 
+              (route) => false)},
           ),
           ListTile(
             leading: const Icon(Icons.settings),
             title: const Text('Settings'),
-            onTap: () => {Navigator.of(context).pop()},
+            onTap: () => {},
           ),
           ListTile(
             leading: const Icon(Icons.logout),
